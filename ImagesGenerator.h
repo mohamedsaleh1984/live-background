@@ -18,10 +18,11 @@ class ImagesGenerator
 {
 public:
     ImagesGenerator(Video& vidFile);
-    vector<string> generate();
+    void generate();
 private:
     Video* videoFile = nullptr;
     void fulshImageDirectory();
+    void createImageDirectory();
 };
 
 #endif
