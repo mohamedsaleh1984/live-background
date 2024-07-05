@@ -3,11 +3,15 @@
 #define __IMAGE_GENERATOR_H__
 
 #include "Global.h"
+#include <iostream>
 #include "Video.h"
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 using namespace std;
+using namespace constants;
 
 
 class ImagesGenerator
