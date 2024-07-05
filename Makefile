@@ -4,9 +4,9 @@ OPT=-O0
 WARNINGS_FLAGS = -Wall -Wno-reorder -Wno-unused-parameter -Wextra -Wno-sign-compare
 CXXFLAGS= $(WARNINGS_FLAGS) -g $(INCDIRS) $(OPT)
 
-CPPFILES=main.cpp
+CPPFILES=main.cpp Video.cpp ImagesGenerator.cpp LiveBackgroundService.cpp
 
-OBJECTS=main.o
+OBJECTS=main.o Video.o ImagesGenerator.o LiveBackgroundService.o
 
 BINARY=app.out 
 
