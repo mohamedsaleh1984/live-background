@@ -14,7 +14,7 @@ void ImagesGenerator::generate()
     if (videoFile == nullptr)
         throw runtime_error("NO Video");
 
-    // fulshImageDirectory();
+    fulshImageDirectory();
     createImageDirectory();
 
     string location(constants::IMAGES_LOCATION.c_str());
@@ -49,7 +49,7 @@ void ImagesGenerator::fulshImageDirectory()
     // If directory is exists
     if (stat(constants::IMAGES_LOCATION.c_str(), &sb) == 0)
     {
-        cout << "remnoving images..." << endl;
+        cout << "removing images..." << endl;
         string strCmd = "rm -r " + constants::IMAGES_LOCATION + "/*";
         system(strCmd.c_str());
         cout << "removed old images..." << endl;
