@@ -2,6 +2,7 @@
 #include "ImagesGenerator.h"
 
 const int FPS = 15;
+const string strSuppressOutput = " >out.dat 2>out.dat";
 
 ImagesGenerator::ImagesGenerator(Video &vidFile)
 {
@@ -24,13 +25,16 @@ void ImagesGenerator::generate()
 
     system(strCmd.c_str());
 
-    strCmd = "ffmpeg -i " + this->videoFile->getVideoPath() + " -vf fps=" + to_string(FPS) + " %05d.png";
+    strCmd = "ffmpeg -i " + this->videoFile->getVideoPath() + " -vf fps=" + to_string(FPS) + " %05d.png" + strSuppressOutput;
 
     cout << "Please wait while creating the images..." << endl;
 
     system(strCmd.c_str());
 
     cout << "Image Generating Completed..." << endl;
+
+    strCmd = "rm out.dat";
+    system(strCmd.c_str());
 }
 
 void ImagesGenerator::fulshImageDirectory()
