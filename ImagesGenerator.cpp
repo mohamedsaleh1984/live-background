@@ -22,8 +22,9 @@ vector<string> ImagesGenerator::generate()
     struct stat sb;
     if (stat(constants::IMAGES_LOCATION.c_str(), &sb) != 0)
     {
+        cout << "Creating " + constants::IMAGES_LOCATION << endl;
         // Create Directory
-        strCmd = "cd / & mkdir" + location;
+        strCmd = "cd / & mkdir " + location;
         // System Call to Create Images Directory
         system(strCmd.c_str());
     }
@@ -33,7 +34,7 @@ vector<string> ImagesGenerator::generate()
     strCmd = "cd " + location;
 
     system(strCmd.c_str());
-
+    
     strCmd = "ffmpeg -i " + this->videoFile->getVideoPath() + " -vf fps=" + to_string(FPS) + " %05d.png";
 
     cout << "Please wait while creating the images..." << endl;
@@ -49,15 +50,15 @@ vector<string> ImagesGenerator::generate()
 
 void ImagesGenerator::fulshImageDirectory()
 {
-
     // Structure which would store the metadata
     struct stat sb;
 
     // If directory is exists
     if (stat(constants::IMAGES_LOCATION.c_str(), &sb) == 0)
     {
-        string strCmd = "rm -f " + IMAGES_LOCATION;
         cout << "remnoving images..." << endl;
+        string strCmd = "rm -r " + constants::IMAGES_LOCATION  +"/*";
         system(strCmd.c_str());
+        cout << "removed old images..." << endl;
     }
 }
