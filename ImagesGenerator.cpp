@@ -25,7 +25,11 @@ void ImagesGenerator::generate()
 
     system(strCmd.c_str());
 
-    strCmd = "ffmpeg -i " + this->videoFile->getVideoPath() + " -vf fps=" + to_string(FPS) + " %05d.png" + strSuppressOutput;
+    strCmd = "ffmpeg -i " + 
+            this->videoFile->getVideoPath() +
+            " -vf fps=" + to_string(FPS) + " " + 
+            constants::IMAGES_LOCATION + "/%05d.png" +
+            strSuppressOutput;
 
     cout << "Please wait while creating the images..." << endl;
 
