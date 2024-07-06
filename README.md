@@ -12,3 +12,9 @@ Python, ffmpeg
 
 References:
 [ffmpeg](https://www.ffmpeg.org/ffmpeg.html)
+
+### ROADBLOCK
+I developed the service in a different branch, and while it is conceptually sound, it is not a viable solution due to the process bootstrap time, which is millisecond differences between each image.
+
+### Solution  <R&D>
+Disassemble the tool and incorporate the code directly into the service instead.
